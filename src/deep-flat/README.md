@@ -29,5 +29,14 @@ helps you understand:
  */
 ```
 
+## Possible Refactors
+
+```js
+function flatten(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? baseFlatten(array, 1) : [];
+}
+```
+
 > Docstring is adapted from
 > [lodash's flattenDeep](https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L7330)
