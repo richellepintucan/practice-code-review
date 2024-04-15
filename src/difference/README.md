@@ -5,6 +5,24 @@ remove are provided as a second array argument.
 
 ---
 
+## Possible Refactors
+
+```js
+var differenceBy = baseRest(function (array, values) {
+  var iteratee = last(values);
+  if (isArrayLikeObject(iteratee)) {
+    iteratee = undefined;
+  }
+  return isArrayLikeObject(array)
+    ? baseDifference(
+        array,
+        baseFlatten(values, 1, isArrayLikeObject, true),
+        getIteratee(iteratee, 2),
+      )
+    : [];
+});
+```
+
 ## Docstring
 
 Here's a starter docstring for your solutions. Feel free to rewrite it if that
